@@ -1,3 +1,5 @@
+const { INPUTS } = require('./constants');
+
 // stores the active TCP connection object
 let connection;
 
@@ -9,36 +11,10 @@ const setupInput = function(conn) {
     stdin.on('data', (key) => {
       if (key === '\u0003') {
         process.exit();
-      }
-      if (key === 'w') {
-        connection.write("Move: up");
-      }
-      if (key === 'a') {
-        connection.write("Move: left");
-      }
-      if (key === 's') {
-        connection.write("Move: down");
-      }
-      if (key === 'd') {
-        connection.write("Move: right");
-      }
-      if (key === 'g') {
-        connection.write("Say: GG EZ");
-      }
-      if (key === 'e') {
-        connection.write("Say: Winner coming thru!");
-      }
-      if (key === 'f') {
-        connection.write("Say: :)");
-      }
-      if (key === 'f') {
-        connection.write("Say: I'm lost, plz help :(");
-      }
-      if (key === 'r') {
-        connection.write("Say: <(^ v ^ <)");
-      }
-      if (key === 't') {
-        connection.write("Say: 🙅‍♂️");
+      } else if (INPUTS[key] !== undefined) {
+        connection.write(INPUTS[key]);
+        // Tried setting key inputs to setInterval and setTimeout, interval crashed game and timeout did not do what was expected (a delay in movement from keypress)
+        // setTimeout(() => (connection.write(INPUTS[key]), 8000));
       }
     });
   };
