@@ -22,6 +22,24 @@ const setupInput = function(conn) {
       if (key === 'd') {
         connection.write("Move: right");
       }
+      if (key === 'g') {
+        connection.write("Say: GG EZ");
+      }
+      if (key === 'e') {
+        connection.write("Say: Winner coming thru!");
+      }
+      if (key === 'f') {
+        connection.write("Say: :)");
+      }
+      if (key === 'f') {
+        connection.write("Say: I'm lost, plz help :(");
+      }
+      if (key === 'r') {
+        connection.write("Say: <(^ v ^ <)");
+      }
+      if (key === 't') {
+        connection.write("Say: 🙅‍♂️");
+      }
     });
   };
   
