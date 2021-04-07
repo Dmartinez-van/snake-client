@@ -6,15 +6,17 @@ let connection;
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
-  
+  let keyPress;
+
   const handleUserInput = function() {
     stdin.on('data', (key) => {
+      // Might have to reposition to not stop the snake each time we EMOTE
+      clearInterval(keyPress);
       if (key === '\u0003') {
         process.exit();
       } else if (INPUTS[key] !== undefined) {
-        connection.write(INPUTS[key]);
-        // Tried setting key inputs to setInterval and setTimeout, interval crashed game and timeout did not do what was expected (a delay in movement from keypress)
-        // setTimeout(() => (connection.write(INPUTS[key]), 8000));
+        // Snake currently doesn't
+        keyPress = setInterval(() => connection.write(INPUTS[key]), 100);
       }
     });
   };

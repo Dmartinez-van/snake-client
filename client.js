@@ -12,15 +12,15 @@ const connect = function() {
 
   conn.on('connect', () => {
     console.log("Connection established!");
-    conn.write("Name: t-t");
-    // conn.write("Move: up");
-    // setTimeout(() => conn.write("Move: up"), 100);
-    // setInterval(() => conn.write("Move: right"), 50);
-    // setTimeout(() => conn.write("Move: up"), 300);
+    conn.write("Name: DAVE");
   });
 
   conn.on('data', (data) => {
     console.log('Server says: ', data);
+  });
+
+  conn.on('end', () => {
+    console.log('client disconnected from server');
   });
   
   return conn;

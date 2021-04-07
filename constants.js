@@ -1,6 +1,9 @@
 // DM IP -> '192.168.1.81'
-const IP = 'localhost';
-const PORT = 50541;
+// Zoom game - > 135.23.222.131
+const IP = '135.23.222.131';
+const PORT = 50542;
+// Zoom Game -> 50542
+// DM Game -> 50541
 
 const INPUTS = {
   w: 'Move: up',
