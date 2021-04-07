@@ -18,11 +18,6 @@ const connect = function() {
     // setTimeout(() => conn.write("Move: up"), 300);
   });
 
-  // conn.on('connect', () => {
-    
-  // });
-
-
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
